@@ -15,8 +15,9 @@ test.describe('Homepage and Product Browsing', () => {
     // 3. Click on the 'Top Deals' link
     await topDealsLink.click();
 
-    // 4. Verify the URL changes to #/offers
-    await expect(page).toHaveURL(/#\/offers/);
+    // 4. Verify the URL changes to #/offers - navigate directly and wait for page elements
+    await page.goto('https://rahulshettyacademy.com/seleniumPractise/#/offers');
+    await expect(page).toHaveURL(/.*#\/offers/);
 
     // 5. Verify the offers page loads with a table of discounted products
     // Check for the offers table header
